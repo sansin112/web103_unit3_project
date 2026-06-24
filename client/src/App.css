@@ -1,33 +1,77 @@
-.app {
-    background: url('./assets/unitygrid.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+/* client/src/App.css */
+
+/* Global Seamless Theme Setup */
+:root {
+  --bg-dark: #0b0f19;
+  --bg-surface: #151f32;
+  --border-subtle: #24324d;
+  --accent-gold: #f59e0b;
 }
 
-header {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+html, body {
+  background-color: var(--bg-dark) !important;
+  color: #f8fafc !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-.main-header {
-    height: 30vh;
-    width: 85vw;
-    align-items: flex-end;
-    position: relative;
-    z-index: 1;
+/* Navbar Tuning */
+.main-navbar {
+  background-color: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header-buttons {
-    width: 30%;
-    display: flex;
-    justify-content: space-around;
+.brand-link {
+  color: var(--accent-gold) !important;
+  font-size: 1.3rem;
+  text-decoration: none;
 }
 
-.header-buttons button {
-    margin-right: 20px;
-    margin-left: 20px;
+/* Nav Button Restyling */
+.nav-btn {
+  font-weight: 600;
+  border-radius: 6px !important;
+  padding: 0.5rem 1.2rem !important;
+}
+
+/* Main Content Workspace Wrapper */
+.app-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+
+/* Master Grid Structure for Venue Cards */
+.venues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Uniform Arena Card Adjustments */
+.venue-card {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 !important; /* Clears Pico default bottom margins */
+}
+
+.venue-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
 }

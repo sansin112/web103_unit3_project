@@ -1,3 +1,4 @@
+// client/src/App.jsx
 import React from 'react'
 import { useRoutes, Link } from 'react-router-dom'
 import Locations from './pages/Locations'
@@ -12,20 +13,9 @@ const App = () => {
       element: <Locations />
     },
     {
-      path: '/echolounge',
-      element: <LocationEvents index={1} />
-    },
-    {
-      path: '/houseofblues',
-      element: <LocationEvents index={2} />
-    },
-    {
-      path: '/pavilion',
-      element: <LocationEvents index={3} />
-    },
-    {
-      path: '/americanairlines',
-      element: <LocationEvents index={4} />
+      // ⚡ FIX: This captures the location ID dynamically from your click events!
+      path: '/location/:id',
+      element: <LocationEvents />
     },
     {
       path: '/events',
@@ -34,18 +24,26 @@ const App = () => {
   ])
 
   return (
-    <div className='app'>
+    <div className='app-container'>
+      <nav className='container-fluid main-navbar'>
+        <ul>
+          <li>
+            <Link to='/' className='brand-link'>
+              <strong>⚡ Play! Pokémon Hub</strong>
+            </Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link to='/' role='button' className='outline secondary nav-btn'>Venues</Link>
+          </li>
+          <li>
+            <Link to='/events' role='button' className='primary nav-btn'>Master Schedule</Link>
+          </li>
+        </ul>
+      </nav>
 
-      <header className='main-header'>
-        <h1>UnityGrid Plaza</h1>
-
-        <div className='header-buttons'>
-          <Link to='/' role='button'>Home</Link>
-          <Link to='/events' role='button'>Events</Link>
-        </div>
-      </header>
-
-      <main>
+      <main className='app-content'>
         {element}
       </main>
     </div>
